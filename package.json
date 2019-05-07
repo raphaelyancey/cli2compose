@@ -2,7 +2,6 @@
   "name": "cli2compose",
   "version": "0.1.1",
   "description": "Translates a Docker command line to docker-compose YAML",
-  "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
@@ -24,13 +23,14 @@
   ],
   "dependencies": {
     "arg": "^4.1.0",
-    "argparse": "^1.0.10",
     "underscore": "^1.9.1",
     "yaml": "^1.5.1"
   },
   "bin": {
     "cli2compose": "./dist/cli2compose.bin.js"
   },
+  "main": "./dist/cli2compose.node.js",
+  "browser": "./dist/cli2compose.browser.js",
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.3",
     "mocha": "^6.1.4",
