@@ -1,6 +1,6 @@
 {
   "name": "cli2compose",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Translates a Docker command line to docker-compose YAML",
   "main": "index.js",
   "scripts": {
