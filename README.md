@@ -43,10 +43,27 @@ npm i -g cli2compose
 
 ## Usage
 
-Just prepend `cli2compose` to your docker command line.
+### CLI
 
 ```bash
-cli2compose docker run [...]
+cli2compose docker run mariadb
+```
+
+### Node.js
+
+```javascript
+const cli2compose = require('cli2compose');
+const yaml = cli2compose('docker run mariadb');
+console.log(yaml);
+```
+
+### Browser
+
+```html
+<script src="https://unpkg.com/cli2compose"></script>
+<script>
+    console.log(cli2compose('docker run mariadb'));
+</script>
 ```
 
 ## Supported options

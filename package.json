@@ -3,7 +3,9 @@
   "version": "0.1.2",
   "description": "Translates a Docker command line to docker-compose YAML",
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha",
+    "build": "./node_modules/.bin/webpack",
+    "build-dev": "./node_modules/.bin/webpack --mode=development"
   },
   "author": "Raphael Yancey <raphael@badfile.net> (https://raphaelyancey.fr)",
   "license": "MIT",

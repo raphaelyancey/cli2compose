@@ -3,45 +3,6 @@ const YAML = require('yaml');
 
 //const input = process.argv.slice(2);
 
-const translations = [
-  {
-    cliOpt: ['--volume', '-v'],
-    composeSection: 'volumes',
-    argType: [String]
-  },
-  {
-    cliOpt: ['--env', '-e'],
-    composeSection: 'environment',
-    argType: [String]
-  },
-  {
-    cliOpt: ['--publish', '-p'],
-    composeSection: 'ports',
-    argType: [String]
-  },
-  {
-    cliOpt: ['--expose'],
-    composeSection: 'expose',
-    argType: [String]
-  },
-  {
-    cliOpt: ['--name'],
-    composeSection: 'container_name',
-    argType: String
-  },
-  {
-    cliOpt: ['--restart'],
-    composeSection: 'restart',
-    argType: String
-  },
-  {
-    cliOpt: ['--network', '--net'],
-    composeSection: 'networks',
-    argType: [String]
-  },
-];
-
-
 /* Gets a translation item by the cli option name */
 // function getTranslation(cliOpt, translations) {
 //   return _.find(translations, (item) => {
@@ -50,6 +11,44 @@ const translations = [
 // }
 
 module.exports = (input) => {
+
+  const translations = [
+    {
+      cliOpt: ['--volume', '-v'],
+      composeSection: 'volumes',
+      argType: [String]
+    },
+    {
+      cliOpt: ['--env', '-e'],
+      composeSection: 'environment',
+      argType: [String]
+    },
+    {
+      cliOpt: ['--publish', '-p'],
+      composeSection: 'ports',
+      argType: [String]
+    },
+    {
+      cliOpt: ['--expose'],
+      composeSection: 'expose',
+      argType: [String]
+    },
+    {
+      cliOpt: ['--name'],
+      composeSection: 'container_name',
+      argType: String
+    },
+    {
+      cliOpt: ['--restart'],
+      composeSection: 'restart',
+      argType: String
+    },
+    {
+      cliOpt: ['--network', '--net'],
+      composeSection: 'networks',
+      argType: [String]
+    },
+  ];
 
   if(typeof input === 'string')
     input = input.split(' ');
@@ -75,14 +74,12 @@ module.exports = (input) => {
   Object.keys(args).forEach(k => {
     const v = args[k];
     const app = yamlArgs['services']['app'];
-    
-    // Generic
+
     if(composeSections[k]) {
       app[composeSections[k]] = v;
     }
 
-    // Image namespace
-    if(k == '_') {
+    if(k === '_') {
       app['image'] = v[2]; // The image name is the first positional argument of docker run (so the third of our full args list)
       if(v.length > 3) app['command'] = v.splice(3).join(' '); // The command is all the positional args after the image
     }
