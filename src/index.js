@@ -1,6 +1,5 @@
 const arg = require('arg');
 const YAML = require('yaml');
-const _ = require('underscore');
 const assert = require('assert');
 
 //const input = process.argv.slice(2);
@@ -65,7 +64,7 @@ module.exports = (input) => {
     'services': { 'app': {}}
   };
 
-  _.each(translations, (item) => {
+  translations.forEach(item => {
     argTranslations[item.cliOpt[0]] = item.argType;
     if(item.cliOpt.length == 2) argTranslations[item.cliOpt[1]] = item.cliOpt[0];
     composeSections[item.cliOpt[0]] = item.composeSection;
@@ -73,8 +72,8 @@ module.exports = (input) => {
 
   const args = arg(argTranslations, options = {permissive: true, argv: input});
 
-  _.each(args, (v, k) => {
-
+  Object.keys(args).forEach(k => {
+    const v = args[k];
     const app = yamlArgs['services']['app'];
     
     // Generic

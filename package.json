@@ -32,7 +32,10 @@
     "cli2compose": "./dist/cli2compose.bin.js"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^5.0.3",
     "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.2"
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1",
+    "webpack-node-externals": "^1.7.2"
   }
 }

@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 
 const baseConfig = {
   entry: path.resolve(__dirname, 'src/index.js')
@@ -8,6 +9,7 @@ const baseConfig = {
 const binConfig = Object.assign({
   entry: path.resolve(__dirname, 'src/cli.js'),
   target: 'node',
+  externals: [nodeExternals()],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'cli2compose.bin.js'
