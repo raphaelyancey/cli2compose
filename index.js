@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const arg = require('arg');
 const YAML = require('yaml');
 const _ = require('underscore');
@@ -39,11 +41,6 @@ const translations = [
     cliOpt: ['--network', '--net'],
     composeSection: 'networks',
     argType: [String]
-  },
-  {
-    cliOpt: ['--command'],
-    composeSection: 'container_name',
-    argType: String
   },
 ];
 

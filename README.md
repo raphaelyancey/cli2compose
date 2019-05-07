@@ -48,3 +48,9 @@ Just prepend `cli2compose` to your docker command line.
 ```bash
 cli2compose docker run [...]
 ```
+
+## Supported options
+
+```bash
+docker [create|run] [--volume|-v] [--publish|-p] [--network|--net] [--restart] [--expose] [--env|-e] image [command]
+```

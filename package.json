@@ -1,0 +1,29 @@
+{
+  "name": "cli2compose",
+  "version": "0.1.0",
+  "description": "Translates a Docker command line to docker-compose YAML",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raphael Yancey <raphael@badfile.net> (https://raphaelyancey.fr)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raphaelyancey/cli2compose.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raphaelyancey/cli2compose/issues"
+  },
+  "homepage": "https://github.com/raphaelyancey/cli2compose",
+  "keywords": ["docker", "compose", "yaml", "cli"],
+  "dependencies": {
+    "arg": "^4.1.0",
+    "argparse": "^1.0.10",
+    "underscore": "^1.9.1",
+    "yaml": "^1.5.1"
+  },
+  "bin": {
+    "cli2compose": "./index.js"
+  }
+}
