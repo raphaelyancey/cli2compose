@@ -16,7 +16,12 @@
     "url": "https://github.com/raphaelyancey/cli2compose/issues"
   },
   "homepage": "https://github.com/raphaelyancey/cli2compose",
-  "keywords": ["docker", "compose", "yaml", "cli"],
+  "keywords": [
+    "docker",
+    "compose",
+    "yaml",
+    "cli"
+  ],
   "dependencies": {
     "arg": "^4.1.0",
     "argparse": "^1.0.10",
@@ -24,6 +29,10 @@
     "yaml": "^1.5.1"
   },
   "bin": {
-    "cli2compose": "./index.js"
+    "cli2compose": "./dist/cli2compose.bin.js"
+  },
+  "devDependencies": {
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.2"
   }
 }
