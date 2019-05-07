@@ -1,6 +1,5 @@
 const arg = require('arg');
 const YAML = require('yaml');
-const assert = require('assert');
 
 //const input = process.argv.slice(2);
 
@@ -55,7 +54,8 @@ module.exports = (input) => {
   if(typeof input === 'string')
     input = input.split(' ');
 
-  assert.ok(Array.isArray(input));
+  if(!Array.isArray(input))
+    throw 'Input must be an array or a string';
 
   const argTranslations = {};
   const composeSections = {};

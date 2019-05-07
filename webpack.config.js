@@ -2,10 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
-const baseConfig = {
-  entry: path.resolve(__dirname, 'src/index.js')
-};
-
 const binConfig = Object.assign({
   entry: path.resolve(__dirname, 'src/cli.js'),
   target: 'node',
@@ -19,20 +15,22 @@ const binConfig = Object.assign({
   ]
 });
 
-const serverConfig = Object.assign({
+const nodeConfig = {
+  entry: path.resolve(__dirname, 'src/index.js'),
   target: 'node',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'cli2compose.node.js'
   }
-}, baseConfig);
+};
 
-const clientConfig = Object.assign({
+const browserConfig = {
+  entry: path.resolve(__dirname, 'src/browser.js'),
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'cli2compose.js'
+    filename: 'cli2compose.browser.js'
   }
-}, baseConfig);
+};
 
-module.exports = [ serverConfig, clientConfig, binConfig ];
+module.exports = [ nodeConfig, browserConfig, binConfig ];
