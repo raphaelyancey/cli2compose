@@ -4,11 +4,13 @@ const YAML = require('yaml');
 //const input = process.argv.slice(2);
 
 /* Gets a translation item by the cli option name */
-// function getTranslation(cliOpt, translations) {
-//   return _.find(translations, (item) => {
-//     return item['cliOpt'][0] == cliOpt;
-//   });
-// }
+function getTranslation(cliOpt, translations) {
+  ret = null;
+  translations.forEach((item) => {
+    if(item['cliOpt'][0] == cliOpt) ret = item;
+  });
+  return ret;
+}
 
 module.exports = (input) => {
 
@@ -48,6 +50,21 @@ module.exports = (input) => {
       composeSection: 'networks',
       argType: [String]
     },
+    {
+      cliOpt: ['--detach', '-d'],
+      composeSection: null,
+      argType: Boolean
+    },
+    {
+      cliOpt: ['--interactive', '-i'],
+      composeSection: null,
+      argType: Boolean
+    },
+    {
+      cliOpt: ['--tty', '-t'],
+      composeSection: null,
+      argType: Boolean
+    },
   ];
 
   if(typeof input === 'string')
@@ -64,22 +81,28 @@ module.exports = (input) => {
   };
 
   translations.forEach(item => {
+    // Formats the configuration expected by arg
     argTranslations[item.cliOpt[0]] = item.argType;
+    // Creates the alias if present
     if(item.cliOpt.length == 2) argTranslations[item.cliOpt[1]] = item.cliOpt[0];
-    composeSections[item.cliOpt[0]] = item.composeSection;
+    // Creates the option to section name relation
+    if(item.composeSection !== null)
+      composeSections[item.cliOpt[0]] = item.composeSection;
   });
 
   const args = arg(argTranslations, options = {permissive: true, argv: input});
 
-  Object.keys(args).forEach(k => {
-    const v = args[k];
+  Object.keys(args).forEach(cliOpt => {
+    let v = args[cliOpt];
     const app = yamlArgs['services']['app'];
 
-    if(composeSections[k]) {
-      app[composeSections[k]] = v;
+    if(composeSections[cliOpt]) {
+      const t = getTranslation(cliOpt, translations);
+      if('mapFn' in t) v = v.map(t.mapFn);
+      app[composeSections[cliOpt]] = v;
     }
 
-    if(k === '_') {
+    if(cliOpt === '_') {
       app['image'] = v[2]; // The image name is the first positional argument of docker run (so the third of our full args list)
       if(v.length > 3) app['command'] = v.splice(3).join(' '); // The command is all the positional args after the image
     }

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./highlight/atom-one-dark.css">
+
+    <title>cli2compose • A Docker tool</title>
+  </head>
+  <body>
+    <div class="container">
+      
+      <div class="row">
+        <div class="col text-center">
+          <h1 class="mt-5">cli<span class="text-muted">2</span>compose</h1>
+          <h4 class="mb-5">Translates a Docker command line to docker-compose YAML</h4>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form id="main-form">
+            <div class="form-row align-items-center">
+              <div class="input-group">
+                <input type="text" id="command" name="command" class="form-control" value="docker run --name some-nginx -p 8080:80 -v /some/content:/usr/share/nginx/html:ro -d nginx">
+                <div class="input-group-append">
+                  <button class="form-control btn btn-primary">Generate YAML</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <pre class="mt-4"><code class="p-3 language-yaml" id="output"></code></pre>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-8 text-center">
+          <p>Also available as a <a href="https://github.com/raphaelyancey/cli2compose#cli">cli tool</a> and <a href="https://www.npmjs.com/package/cli2compose">package</a> for your backend and frontend projects</p>
+          <p>A tool by <a href="https://raphaelyancey.fr">Raphael Yancey</a></p>
+        </div>
+      </div>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../dist/cli2compose.browser.js"></script>
+    <!--<script src="https://unpkg.com/cli2compose"></script>-->
+    <script src="./highlight.pack.js"></script>
+    <script src="./index.js"></script>
+    <script>
+      // Matomo
+      var _paq = _paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+      var u="//s.raphaelyancey.fr/";
+      _paq.push(['setTrackerUrl', u+'js/']);
+      _paq.push(['setSiteId', '3']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'js/'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><img src="//s.raphaelyancey.fr/js/?idsite=3&rec=1" style="border:0;" alt=""></noscript>
+  </body>
+</html>

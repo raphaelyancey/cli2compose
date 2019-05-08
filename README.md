@@ -46,7 +46,7 @@ npm i -g cli2compose
 ### CLI
 
 ```bash
-cli2compose docker run mariadb
+cli2compose docker run mariadb > docker-compose.yml
 ```
 
 ### Node.js
