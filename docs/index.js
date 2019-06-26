@@ -1,6 +1,9 @@
 hljs.initHighlightingOnLoad();
 
 $(document).ready(function() {
+  var clipboard = new ClipboardJS('#copy-btn');
+
+  var copyBtn = $('#copy-btn');
   var form = $('#main-form');
   var output = $('#output');
   var input = $('#command');
@@ -29,4 +32,11 @@ $(document).ready(function() {
     generate(input.val());
   });
 
+  clipboard.on('success', function(e) {
+    var initial = copyBtn.html();
+    copyBtn.html('Done!');
+    window.setTimeout(function() {
+      copyBtn.html(initial);
+    }, 1500);
+  });
 });
