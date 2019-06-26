@@ -1,3 +1,5 @@
+![](https://img.shields.io/npm/v/cli2compose.svg)
+
 # cli2compose
 
 Translates
@@ -69,5 +71,5 @@ console.log(yaml);
 ## Supported options
 
 ```bash
-docker [create|run] [--volume|-v] [--publish|-p] [--network|--net] [--restart] [--expose] [--env|-e] image [command]
+docker [create|run] [--volume|-v] [--publish|-p] [--network|--net] [--restart] [--expose] [--env|-e] [--links] [--name] image [command]
 ```
