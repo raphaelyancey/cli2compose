@@ -25,7 +25,7 @@
         <div class="col-md-8">
           <form id="main-form">
             <div class="input-group">
-              <textarea id="command" name="command" class="form-control">docker run --name some-nginx -p 8080:80 -v /some/content:/usr/share/nginx/html:ro -d nginx</textarea>
+              <textarea rows="10" id="command" name="command" class="form-control">docker run --name some-nginx -p 8080:80 -v /some/content:/usr/share/nginx/html:ro -d nginx</textarea>
             </div>
             <div class="input-group mt-1">
               <button class="form-control btn btn-primary">Generate docker-compose.yml</button>
@@ -38,12 +38,15 @@
         <div class="col-md-8">
           <pre class="mt-4"><code class="p-3 language-yaml" id="output"></code></pre>
         </div>
+        <div>
+          <strong>Not the expected output?</strong> Just submit <a id="issue-link" href="">this pre-filled issue</a>.
+        </div>
       </div>
 
       <div class="row justify-content-center mt-4">
         <div class="col-md-8 text-center">
           <p>Also available as a <a href="https://github.com/raphaelyancey/cli2compose#cli">cli tool</a> and <a href="https://www.npmjs.com/package/cli2compose">package</a> for your backend and frontend projects</p>
-          <p>A tool by <a href="https://raphaelyancey.fr">Raphael Yancey</a></p>
+          <small>A tool by <a href="https://raphaelyancey.fr">Raphael Yancey</a></small>
         </div>
       </div>
 
