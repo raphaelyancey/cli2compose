@@ -65,6 +65,11 @@ module.exports = (input) => {
       composeSection: null,
       argType: Boolean
     },
+    {
+      cliOpt: ['--link'],
+      composeSection: 'links',
+      argType: [String]
+    },
   ];
 
   if(typeof input === 'string')
