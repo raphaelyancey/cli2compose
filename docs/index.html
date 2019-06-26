@@ -24,13 +24,11 @@
       <div class="row justify-content-center">
         <div class="col-md-8">
           <form id="main-form">
-            <div class="form-row align-items-center">
-              <div class="input-group">
-                <input type="text" id="command" name="command" class="form-control" value="docker run --name some-nginx -p 8080:80 -v /some/content:/usr/share/nginx/html:ro -d nginx">
-                <div class="input-group-append">
-                  <button class="form-control btn btn-primary">Generate YAML</button>
-                </div>
-              </div>
+            <div class="input-group">
+              <textarea id="command" name="command" class="form-control">docker run --name some-nginx -p 8080:80 -v /some/content:/usr/share/nginx/html:ro -d nginx</textarea>
+            </div>
+            <div class="input-group mt-1">
+              <button class="form-control btn btn-primary">Generate docker-compose.yml</button>
             </div>
           </form>
         </div>
