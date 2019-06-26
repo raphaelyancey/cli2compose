@@ -12,6 +12,23 @@ function getTranslation(cliOpt, translations) {
   return ret;
 }
 
+/* Clean stuff from the input string */
+function cleanInput(input) {
+  input = input.replace(/\\\n(?:\t|\s*)/g, ''); // Multiline bash commands
+  return input;
+}
+
+/* Clean stuff from the args array */
+function cleanArgs(input) {
+
+  // Quotes
+  for(var i=0; i<input.length-1; i++) {
+    input[i] = input[i].replace(/"/g, '');
+  }
+  
+  return input;
+}
+
 module.exports = (input) => {
 
   const translations = [
@@ -72,8 +89,11 @@ module.exports = (input) => {
     },
   ];
 
-  if(typeof input === 'string')
-    input = input.split(' ');
+  if(typeof input === 'string') {
+    input = cleanInput(input); // Applied to the inline command
+    input = input.match(/".+?"|[^\s]+/g);
+    input = cleanArgs(input); // Applied to each args
+  }
 
   if(!Array.isArray(input))
     throw 'Input must be an array or a string';
