@@ -1,6 +1,6 @@
 {
   "name": "cli2compose",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Translates a Docker command line to docker-compose YAML",
   "scripts": {
     "test": "./node_modules/.bin/mocha",
