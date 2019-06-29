@@ -25,6 +25,7 @@
   ],
   "dependencies": {
     "arg": "^4.1.0",
+    "split-string": "^6.1.0",
     "underscore": "^1.9.1",
     "yaml": "^1.5.1"
   },

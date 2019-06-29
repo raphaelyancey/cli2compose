@@ -1,5 +1,6 @@
 const arg = require('arg');
 const YAML = require('yaml');
+const split = require('split-string');
 
 //const input = process.argv.slice(2);
 
@@ -23,9 +24,9 @@ function cleanArgs(input) {
 
   // Quotes
   for(var i=0; i<input.length-1; i++) {
-    input[i] = input[i].replace(/"/g, '');
+    input[i] = input[i].replace(/["']/g, '');
   }
-  
+
   return input;
 }
 
@@ -91,7 +92,10 @@ module.exports = (input) => {
 
   if(typeof input === 'string') {
     input = cleanInput(input); // Applied to the inline command
-    input = input.match(/".+?"|[^\s]+/g);
+    input = split(input, {
+      separator: " ",
+      quotes: ["'", '"'],
+    });
     input = cleanArgs(input); // Applied to each args
   }
 
