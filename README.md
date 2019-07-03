@@ -1,4 +1,4 @@
-![](https://img.shields.io/npm/v/cli2compose.svg)
+![npm](https://img.shields.io/npm/v/cli2compose.svg) ![CircleCI](https://img.shields.io/circleci/build/github/raphaelyancey/cli2compose/master.svg)
 
 # cli2compose
 
