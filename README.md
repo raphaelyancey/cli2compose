@@ -37,18 +37,20 @@ services:
     restart: unless-stopped
 ```
 
-## Installation
+## Quick start
 
 ```bash
-npm i -g cli2compose
+npx -q cli2compose docker run mariadb > docker-compose.yml
 ```
+
+... or through the [web ui](https://raphaelyancey.github.com/cli2compose)!
 
 ## Usage
 
 ### CLI
 
 ```bash
-cli2compose docker run mariadb > docker-compose.yml
+npx -q cli2compose docker run mariadb > docker-compose.yml
 ```
 
 ### Node.js
@@ -68,8 +70,15 @@ console.log(yaml);
 </script>
 ```
 
-## Supported options
+## Supported input options
 
 ```bash
-docker [create|run] [--volume|-v] [--publish|-p] [--network|--net] [--restart] [--expose] [--env|-e] [--links] [--name] image [command]
+docker [create|run] [--volume|-v]
+                    [--publish|-p]
+                    [--network|--net]
+                    [--restart]
+                    [--expose]
+                    [--env|-e]
+                    [--links]
+                    [--name] image [command]
 ```
