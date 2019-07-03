@@ -10,7 +10,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: npm install -g npm@latest
+      - run: sudo npm install -g npm@latest
       - restore_cache: # special step to restore the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
       - run: npm install
