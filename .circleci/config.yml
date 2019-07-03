@@ -10,17 +10,16 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: sudo npm install -g npm@latest
       - restore_cache: # special step to restore the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
-      - run: npm install
+      - run: yarn install
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run:
           name: test
-          command: npm test
+          command: yarn test
       - save_cache:
           paths:
             - node_modules
