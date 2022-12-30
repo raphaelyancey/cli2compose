@@ -36,7 +36,7 @@
   "browser": "./dist/cli2compose.browser.js",
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.3",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.3.1",
